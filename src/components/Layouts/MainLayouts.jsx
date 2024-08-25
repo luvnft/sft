@@ -3,7 +3,7 @@ import BottomNavigation from "../ui/BottomNavigation";
 
 const MainLayouts = () => {
     return (
-        <div data-theme="synthwave">
+        <div data-theme="black">
             <Outlet />
             <BottomNavigation />
         </div>

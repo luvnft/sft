@@ -6,7 +6,8 @@ const BottomNavigation = () => {
 
     return (
         <div className="fixed bottom-0 z-50 w-full bg-[#262626] px-10 py-4 flex justify-between items-center">
-            <div className="flex flex-col justify-center items-center gap-1">
+
+            <Link to={'/'} className="flex flex-col justify-center items-center gap-1">
                 {
                     getUrl === '/' ?
                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
@@ -27,11 +28,11 @@ const BottomNavigation = () => {
                     <p className="font-roboto text-xs text-transparent bg-gradient-to-tr from-[#27C9FF] to-[#FBD130] bg-clip-text">Home</p>:
                     <p className="font-roboto text-xs">Home</p>
                 }
-            </div>
+            </Link>
 
-            <div className="h-10 w-1 bg-white blur-[1px]"></div>
+            <div className="h-10 w-[2px] bg-white blur-[1px]"></div>
 
-            <div className="flex flex-col justify-center items-center gap-1">
+            <Link to={'/task'} className="flex flex-col justify-center items-center gap-1">
                 {
                     getUrl === '/task' ?
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" viewBox="0 0 22 26" fill="none">
@@ -53,11 +54,11 @@ const BottomNavigation = () => {
                     <p className="font-roboto text-xs text-transparent bg-gradient-to-tr from-[#27C9FF] to-[#FBD130] bg-clip-text">Task</p>:
                     <p className="font-roboto text-xs">Task</p>
                 }
-            </div>
+            </Link>
 
-            <div className="h-10 w-1 bg-white blur-[1px]"></div>
+            <div className="h-10 w-[2px] bg-white blur-[1px]"></div>
 
-            <div className="flex flex-col justify-center items-center gap-1">
+            <Link to={'/withdraw'} className="flex flex-col justify-center items-center gap-1">
                 {
                     getUrl === '/withdraw' ?
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
@@ -78,7 +79,7 @@ const BottomNavigation = () => {
                     getUrl === '/withdraw' ? 
                     <p className="font-roboto text-xs text-transparent bg-gradient-to-tr from-[#27C9FF] to-[#FBD130] bg-clip-text">Withdraw</p>:
                     <p className="font-roboto text-xs">Withdraw</p>
-                } </div>
+                } </Link>
 
         </div>
     );
