@@ -4,7 +4,9 @@ import BottomNavigation from "../ui/BottomNavigation";
 const MainLayouts = () => {
     return (
         <div data-theme="black">
-            <Outlet />
+            <div className="mb-20">
+                <Outlet />
+            </div>
             <BottomNavigation />
         </div>
     );

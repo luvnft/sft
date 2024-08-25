@@ -7,7 +7,7 @@ const Profile_temp = () => {
                 <div className="bg-[#27C9FF59] rounded-[340px] blur-[130px] -left-[150px] -top-[30px] rotate-45 w-[155px] h-[340px] absolute"></div>
                 <div className="bg-[#FBD13066] rounded-[340px] -right-[150px] -bottom-[130px] blur-[130px]  rotate-[-16] w-[155px] h-[340px] absolute"></div>
 
-                <p className="font-roboto text-xs capitalize text-center absolute top-2 left-[50%] -translate-x-[50%] text-transparent bg-gradient-to-tr from-[#27C9FF] to-[#FBD130] bg-clip-text">profile</p>
+                <p className="font-roboto text-xs capitalize text-center absolute top-2 left-[50%] -translate-x-[50%] text-transparent bg-gradient-to-r from-[#27C9FF] to-[#FBD130] bg-clip-text">profile</p>
 
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-3">
