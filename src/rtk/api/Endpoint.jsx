@@ -20,6 +20,15 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
             }),
             providesTags: ["user"]
         }),
+        TaskList: builder.query({
+            query: (arg) => ({
+                url: '/task-list',
+                method: 'GET',
+                params: {
+                    userId: arg
+                }
+            }),
+        }),
         UpdateAccount: builder.mutation({
             query: (arg) => ({
                 url: '/update-account',
@@ -37,4 +46,4 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
     })
 });
 
-export const { useCreateAccountMutation, useUpdateAccountMutation, useFindAccountQuery, useLeaderboardQuery } = InjectEndpoint;
+export const { useCreateAccountMutation, useUpdateAccountMutation, useFindAccountQuery, useLeaderboardQuery, useTaskListQuery } = InjectEndpoint;

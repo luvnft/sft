@@ -8,6 +8,7 @@ import { setUser } from "../../rtk/slice/UserInfoSlice";
 const MainLayouts = () => {
     const [triggerAccount] = useCreateAccountMutation();
     const dispatch = useDispatch();
+    
     useEffect(() => {
         const TelegramWebApp = TelegramWebAppData();
         const DataObj = {

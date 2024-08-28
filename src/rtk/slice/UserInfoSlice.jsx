@@ -8,11 +8,15 @@ const UserInfoSlice = createSlice({
     },
     reducers: {
         setUser(state, action) {
-            state.userId = action.payload.userId;
-            state.userName = action.payload.userName;
+            if (action?.payload?.userId) {
+                state.userId = action?.payload?.userId;
+            }
+            if (action?.payload?.userName) {
+                state.userName = action?.payload?.userName;
+            }
         }
     }
 });
 
-export const {setUser} = UserInfoSlice.actions;
+export const { setUser } = UserInfoSlice.actions;
 export default UserInfoSlice;

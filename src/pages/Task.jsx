@@ -5,7 +5,7 @@ const Task = () => {
     return (
         <div className="min-h-screen bg-black p-5 relative">
             <Task_Details />
-            <div className="mt-20 relative">
+            <div className="mt-28 relative">
                 <TaskList />
             </div>
         </div>
