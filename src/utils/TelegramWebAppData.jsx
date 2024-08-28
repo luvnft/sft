@@ -8,7 +8,6 @@ const TelegramWebAppData = () => {
 
         if (tgWebAppData) {
             const decodedData = decodeURIComponent(tgWebAppData);
-            console.log(decodedData);
             
             return JSON.parse(decodedData.split("=")[1].split("}")[0]+"}");
         }

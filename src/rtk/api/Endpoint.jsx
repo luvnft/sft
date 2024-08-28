@@ -7,16 +7,34 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
                 url: '/create-account',
                 method: 'POST',
                 body: arg
-            })
+            }),
+            invalidatesTags: ["user"]
         }),
-        LoginAccount: builder.mutation({
+        FindAccount: builder.query({
             query: (arg) => ({
                 url: '/find-account',
-                method: 'POST',
+                method: 'GET',
+                params: {
+                    userId: arg
+                }
+            }),
+            providesTags: ["user"]
+        }),
+        UpdateAccount: builder.mutation({
+            query: (arg) => ({
+                url: '/update-account',
+                method: 'PUT',
                 body: arg
-            })
-        })
+            }),
+            invalidatesTags: ["user"]
+        }),
+        Leaderboard: builder.query({
+            query: () => ({
+                url: '/leaderboard',
+                method: 'GET'
+            }),
+        }),
     })
 });
 
-export const { useCreateAccountMutation } = InjectEndpoint;
+export const { useCreateAccountMutation, useUpdateAccountMutation, useFindAccountQuery, useLeaderboardQuery } = InjectEndpoint;
