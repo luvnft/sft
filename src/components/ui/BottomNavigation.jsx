@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const BottomNavigation = () => {
     const getUrl = useLocation()?.pathname;
-    console.log(getUrl);
 
     return (
         <div className="fixed bottom-0 z-50 w-full bg-[#262626] px-10 py-4 flex justify-between items-center">
