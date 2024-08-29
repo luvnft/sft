@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFindAccountQuery, useUpdateAccountMutation } from "../../../rtk/api/Endpoint";
 import { setMongooseId } from "../../../rtk/slice/UserInfoSlice";
+import WebApp from "@twa-dev/sdk";
 
 const Profile_temp = () => {
     const { register, handleSubmit } = useForm();
@@ -14,7 +15,9 @@ const Profile_temp = () => {
     const disPatch = useDispatch();
     const [TriggerUpdateProfile] = useUpdateAccountMutation(undefined);
     const { data, isFetching } = useFindAccountQuery(userId);
-    disPatch(setMongooseId({_id: data?._id}))
+    disPatch(setMongooseId({ _id: data?._id }))
+
+    const User = WebApp.initDataUnsafe.start_param;
 
 
     const HandleProfileSubmission = async (e) => {
@@ -96,7 +99,13 @@ const Profile_temp = () => {
 
                                             <div className="">
                                                 <p className="text-xl font-roboto text-white ">{data?.fullName}</p>
-                                                <p className="text-xs font-roboto text-[#999999]">@{data?.username}</p>
+                                                {
+                                                    User ?
+                                                        <p className="text-xs font-roboto text-[#999999]">invited by {User}</p>
+                                                        :
+                                                        <p className="text-xs font-roboto text-[#999999]">@{data?.username}</p>
+
+                                                }
                                             </div>
                                         </div>
 

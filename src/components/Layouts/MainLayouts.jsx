@@ -1,22 +1,25 @@
 import { Outlet } from "react-router-dom";
 import BottomNavigation from "../ui/BottomNavigation";
 import { useEffect } from "react";
-import TelegramWebAppData from "../../utils/TelegramWebAppData";
 import { useCreateAccountMutation } from "../../rtk/api/Endpoint";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../rtk/slice/UserInfoSlice";
+import WebApp from "@twa-dev/sdk";
+
 const MainLayouts = () => {
     const [triggerAccount] = useCreateAccountMutation();
     const dispatch = useDispatch();
+    const User = WebApp.initDataUnsafe.user;
     
     useEffect(() => {
-        const TelegramWebApp = TelegramWebAppData();
+        
         const DataObj = {
-            userId: TelegramWebApp?.id,
-            username: TelegramWebApp?.username,
-            fullName: TelegramWebApp?.first_name + TelegramWebApp?.last_name,
+            userId: User.id,
+            username: User?.username,
+            fullName: User?.first_name + User?.last_name,
+            profilePicture: User?.photo_url,
         }
-        dispatch(setUser({ userId: TelegramWebApp?.id, userName: TelegramWebApp?.username }));
+        dispatch(setUser({ userId: User?.id, userName: User?.username }));
         triggerAccount(DataObj)
     }, []);
 

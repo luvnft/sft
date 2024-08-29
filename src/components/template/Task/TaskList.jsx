@@ -8,7 +8,7 @@ const TaskList = () => {
 
     return (
         <div>
-            <div className="flex flex-col gap-5 mt-5 h-[200vh]">
+            <div className="flex flex-col gap-5 mt-5">
                 {
                     isFetching ? <div className="">
                         <div className="w-full h-16 skeleton rounded-2xl"></div>
