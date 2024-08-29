@@ -4,6 +4,7 @@ const UserInfoSlice = createSlice({
     name: "UserInfo",
     initialState: {
         userId: "",
+        _id: "",
         userName: ""
     },
     reducers: {
@@ -14,9 +15,14 @@ const UserInfoSlice = createSlice({
             if (action?.payload?.userName) {
                 state.userName = action?.payload?.userName;
             }
+        },
+        setMongooseId(state, action){
+            if (action?.payload?._id) {
+                state._id = action?.payload?._id;
+            }
         }
     }
 });
 
-export const { setUser } = UserInfoSlice.actions;
+export const { setUser, setMongooseId } = UserInfoSlice.actions;
 export default UserInfoSlice;

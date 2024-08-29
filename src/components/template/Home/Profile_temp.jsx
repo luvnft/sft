@@ -1,18 +1,21 @@
 import { useForm } from "react-hook-form";
 import profile_img from "../../../assets/images/profile_img.png";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useFindAccountQuery, useUpdateAccountMutation } from "../../../rtk/api/Endpoint";
+import { setMongooseId } from "../../../rtk/slice/UserInfoSlice";
 
 const Profile_temp = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const [isEdit, setEdit] = useState(false);
     const [isLoadingFinally, setLoadingFinally] = useState(false);
     const userId = useSelector((state => state.UserInfo?.userId));
     const [profileImage, setProfileImage] = useState(undefined);
-
+    const disPatch = useDispatch();
     const [TriggerUpdateProfile] = useUpdateAccountMutation(undefined);
     const { data, isFetching } = useFindAccountQuery(userId);
+    disPatch(setMongooseId({_id: data?._id}))
+
 
     const HandleProfileSubmission = async (e) => {
         try {

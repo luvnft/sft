@@ -10,7 +10,16 @@ const TaskList = () => {
         <div>
             <div className="flex flex-col gap-5 mt-5 h-[200vh]">
                 {
-                    isFetching ? <div className="w-full h-64 skeleton rounded-2xl"></div> :
+                    isFetching ? <div className="">
+                        <div className="w-full h-16 skeleton rounded-2xl"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl my-3"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl my-3"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl my-3"></div>
+                        <div className="w-full h-16 skeleton rounded-2xl"></div>
+
+                    </div> :
                         <>
                             {
                                 data?.data?.map((item, index) =>
@@ -31,7 +40,7 @@ const TaskList = () => {
                                                             <path d="M7.5 1.25C4.05 1.25 1.25 4.05 1.25 7.5C1.25 10.95 4.05 13.75 7.5 13.75C10.95 13.75 13.75 10.95 13.75 7.5C13.75 4.05 10.95 1.25 7.5 1.25ZM7.5 12.5C4.74375 12.5 2.5 10.2563 2.5 7.5C2.5 4.74375 4.74375 2.5 7.5 2.5C10.2563 2.5 12.5 4.74375 12.5 7.5C12.5 10.2563 10.2563 12.5 7.5 12.5ZM9.925 5.18125L6.25 8.85625L5.075 7.68125C4.83125 7.4375 4.4375 7.4375 4.19375 7.68125C3.95 7.925 3.95 8.31875 4.19375 8.5625L5.8125 10.1813C6.05625 10.425 6.45 10.425 6.69375 10.1813L10.8125 6.0625C11.0562 5.81875 11.0562 5.425 10.8125 5.18125C10.5687 4.9375 10.1687 4.9375 9.925 5.18125Z" fill="black" />
                                                         </svg>
                                                     </button> :
-                                                    <HandleClaimStateButton />
+                                                    <HandleClaimStateButton taskId={item?._id} link={item?.link} />
                                             }
                                         </div>
 

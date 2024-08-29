@@ -10,6 +10,14 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
             }),
             invalidatesTags: ["user"]
         }),
+        MarkAsComplete: builder.mutation({
+            query: (arg) => ({
+                url: '/complete-task',
+                method: 'POST',
+                body: arg
+            }),
+            invalidatesTags: ["task"]
+        }),
         FindAccount: builder.query({
             query: (arg) => ({
                 url: '/find-account',
@@ -28,6 +36,17 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
                     userId: arg
                 }
             }),
+            providesTags: ["task"]
+        }),
+        PointTable: builder.query({
+            query: (arg) => ({
+                url: '/point-table',
+                method: 'GET',
+                params: {
+                    id: arg
+                }
+            }),
+            providesTags: ["task"]
         }),
         UpdateAccount: builder.mutation({
             query: (arg) => ({
@@ -42,8 +61,9 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
                 url: '/leaderboard',
                 method: 'GET'
             }),
+            providesTags: ["task"]
         }),
     })
 });
 
-export const { useCreateAccountMutation, useUpdateAccountMutation, useFindAccountQuery, useLeaderboardQuery, useTaskListQuery } = InjectEndpoint;
+export const { useCreateAccountMutation, useMarkAsCompleteMutation, useUpdateAccountMutation, useFindAccountQuery, useLeaderboardQuery, useTaskListQuery, usePointTableQuery } = InjectEndpoint;
