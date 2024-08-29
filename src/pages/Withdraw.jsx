@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import money_img from "../assets/images/money_emoji.png";
+import money_img from "../assets/images/money_flying.gif";
 import { usePointTableQuery } from "../rtk/api/Endpoint";
 
 const Withdraw = () => {

@@ -2,7 +2,7 @@ import { useLeaderboardQuery } from "../../../rtk/api/Endpoint";
 
 const Leaderborard = () => {
     const { data, isFetching } = useLeaderboardQuery(undefined);
-    
+
     return (
         <div>
             <div className="w-full bg-[#0000004D] rounded-2xl mt-5 relative overflow-hidden">
@@ -31,7 +31,7 @@ const Leaderborard = () => {
                                     <div key={index} className="bg-[#FFFFFF1A] backdrop-blur-sm h-16 mt-0 rounded-2xl flex items-center gap-3 px-3 overflow-hidden">
                                         <div className="size-11 p-[2px] bg-gradient-to-r from-[#27C9FF] to-[#FBD130] rounded-2xl relative">
                                             {/* <div className="bg-[#27C9FF] w-full h-full blur-md z-0 rounded-2xl absolute"></div> */}
-                                            <img src={item?.userId?.profilePicture} alt="" className="rounded-2xl z-10 relative w-full h-full" />
+                                            <img src={item?.userId?.profilePicture ? item?.userId?.profilePicture : "https://img.freepik.com/free-vector/modern-question-mark-template-idea-message-vector_1017-47932.jpg"} alt="" className="rounded-2xl z-10 relative w-full h-full" />
                                         </div>
                                         <p className="font-roboto text-xs font-bold">• {index + 2}</p>
                                         <div className="">
