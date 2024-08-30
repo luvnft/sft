@@ -63,6 +63,14 @@ const InjectEndpoint = BaseQuery.injectEndpoints({
             }),
             providesTags: ["task"]
         }),
+        ReferredSomeone: builder.mutation({
+            query: (arg) => ({
+                url: '/referred-someone',
+                method: 'PUT',
+                body: arg
+            }),
+            invalidatesTags: ["user"]
+        }),
     })
 });
 

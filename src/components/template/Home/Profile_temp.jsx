@@ -17,7 +17,6 @@ const Profile_temp = () => {
     const { data, isFetching } = useFindAccountQuery(userId);
     disPatch(setMongooseId({ _id: data?._id }))
 
-    const User = WebApp.initDataUnsafe.start_param;
 
 
     const HandleProfileSubmission = async (e) => {
@@ -53,7 +52,7 @@ const Profile_temp = () => {
     return (
         <div>
             <div className="rounded-2xl relative overflow-hidden p-5">
-                
+
                 <div className="bg-gradient-to-b from-[#0000004D] to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
 
                 <p className="font-roboto text-xs capitalize text-center absolute top-2 left-[50%] -translate-x-[50%] text-transparent bg-gradient-to-r from-[#27C9FF] to-[#FBD130] bg-clip-text">profile</p>
@@ -61,7 +60,7 @@ const Profile_temp = () => {
                     isFetching ? <div className="flex flex-col justify-center gap-5 items-center py-5 w-full relative  z-10">
                         <div className="flex items-center gap-3">
                             <div className="p-[2px] skeleton rounded-full relative  size-[51px] flex justify-center items-center overflow-hidden">
-                              
+
                             </div>
 
                             <div className="">
@@ -114,13 +113,7 @@ const Profile_temp = () => {
 
                                             <div className="">
                                                 <p className="text-xl font-roboto text-white ">{data?.fullName}</p>
-                                                {
-                                                    User ?
-                                                        <p className="text-xs font-roboto text-[#999999]">invited by {User}</p>
-                                                        :
-                                                        <p className="text-xs font-roboto text-[#999999]">@{data?.username}</p>
-
-                                                }
+                                                <p className="text-xs font-roboto text-[#999999]">@{data?.username}</p>
                                             </div>
                                         </div>
 
