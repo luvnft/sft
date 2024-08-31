@@ -8,6 +8,7 @@ import AdminLayout from "./components/Layouts/AdminLayout";
 import Login from "./pages/Admin/Login";
 import AdminProtector from "./utils/AdminProtector";
 import UserManagement from "./pages/Admin/UserManagement";
+import TaskManagement from "./pages/Admin/TaskManagement";
 
 const MainRoutes = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const MainRoutes = createBrowserRouter([
             {
                 index: true,
                 element: <UserManagement />
+            },
+            {
+                path: 'task',
+                element: <TaskManagement/>
             }
         ]
     }
