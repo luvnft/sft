@@ -7,6 +7,7 @@ import Withdraw from "./pages/Withdraw";
 import AdminLayout from "./components/Layouts/AdminLayout";
 import Login from "./pages/Admin/Login";
 import AdminProtector from "./utils/AdminProtector";
+import UserManagement from "./pages/Admin/UserManagement";
 
 const MainRoutes = createBrowserRouter([
     {
@@ -38,7 +39,10 @@ const MainRoutes = createBrowserRouter([
         element: <AdminProtector><AdminLayout /></AdminProtector>,
         errorElement: <ErrorElement />,
         children: [
-           
+            {
+                index: true,
+                element: <UserManagement />
+            }
         ]
     }
 ]);
