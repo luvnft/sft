@@ -8,8 +8,16 @@ const AdminEndpoint = BaseQuery.injectEndpoints({
                 body: arg,
                 method: 'POST'
             })
-        })
+        }),
+        AddTask: builder.mutation({
+            query: (arg)=>({
+                url: '/create-task',
+                body: arg,
+                method: 'POST'
+            }),
+            invalidatesTags: ["task"]
+        }),
     })
 });
 
-export const {useLoginAdminMutation} = AdminEndpoint;
+export const {useLoginAdminMutation, useAddTaskMutation} = AdminEndpoint;
