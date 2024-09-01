@@ -6,7 +6,6 @@ import { useAddTaskMutation, useAdminTaskListQuery } from "../../rtk/api/AdminEn
 const TaskManagement = () => {
     const [newTaskModal, setNewTaskModal] = useState(false);
     const { data, isFetching } = useAdminTaskListQuery(undefined);
-    console.log(data);
 
     const { register, handleSubmit, reset } = useForm();
     const [triggerAddNewTask] = useAddTaskMutation();

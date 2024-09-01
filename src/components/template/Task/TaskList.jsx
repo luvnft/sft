@@ -5,6 +5,33 @@ import HandleClaimStateButton from "./HandleClaimStateButton";
 const TaskList = () => {
     const userId = useSelector((state => state?.UserInfo?.userId));
     const { data, isFetching } = useTaskListQuery(userId);
+    console.log(data?.data[0]?.category);
+    const getSocialLogo = (category) => {
+        switch (category) {
+            case 'Twitter':
+                return "https://freepnglogo.com/images/all_img/1691832581twitter-x-icon-png.png";
+            case 'Telegram':
+                return "https://cdn-icons-png.flaticon.com/128/2111/2111646.png";
+            case 'Discord':
+                return "https://cdn-icons-png.flaticon.com/128/5968/5968756.png";
+            case 'CMC':
+                return "https://seeklogo.com/images/C/coinmarketcap-logo-064D167A0E-seeklogo.com.png"; 
+            case 'Youtube':
+                return "https://cdn-icons-png.flaticon.com/128/3670/3670147.png";
+            case 'Comment':
+                return "https://cdn-icons-png.flaticon.com/128/2190/2190552.png";
+            case 'Like':
+                return "https://cdn-icons-png.flaticon.com/128/456/456115.png";
+            case 'Share':
+                return "https://cdn-icons-png.flaticon.com/128/929/929468.png"; 
+            case 'Partnership':
+                return "https://cdn-icons-png.flaticon.com/128/1006/1006555.png";
+            default:
+                return "https://cdn-icons-png.flaticon.com/128/2387/2387635.png";
+        }
+    };
+
+
 
     return (
         <div>
@@ -26,7 +53,7 @@ const TaskList = () => {
                                     <div className="relative" key={index}>
                                         <div className="flex justify-between items-center">
                                             <div className="flex items-center gap-3">
-                                                <img src="https://freepnglogo.com/images/all_img/1691832581twitter-x-icon-png.png" alt="social logo" className="size-6" />
+                                                <img src={getSocialLogo(item?.category)} alt="social logo" className="size-6" />
 
                                                 <div className="">
                                                     <p className="font-roboto text-white text-sm capitalize">{item?.title}</p>
