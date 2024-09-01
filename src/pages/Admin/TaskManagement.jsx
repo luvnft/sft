@@ -1,14 +1,15 @@
 import { useState } from "react";
 import TaskItemPreview from "../../components/template/Admin/Task Management/TaskItemPreview";
-import { useTaskListQuery } from "../../rtk/api/Endpoint";
 import { useForm } from "react-hook-form";
-import { useAddTaskMutation } from "../../rtk/api/AdminEndpoint";
+import { useAddTaskMutation, useAdminTaskListQuery } from "../../rtk/api/AdminEndpoint";
 
 const TaskManagement = () => {
     const [newTaskModal, setNewTaskModal] = useState(false);
-    const { data, isFetching } = useTaskListQuery(undefined);
+    const { data, isFetching } = useAdminTaskListQuery(undefined);
+    console.log(data);
+
     const { register, handleSubmit, reset } = useForm();
-    const [triggerAddNewTask, { isSuccess }] = useAddTaskMutation();
+    const [triggerAddNewTask] = useAddTaskMutation();
     const HandleAddNewTask = async (e) => {
         await triggerAddNewTask(e);
         setNewTaskModal(false);
@@ -24,16 +25,14 @@ const TaskManagement = () => {
                         <form onSubmit={handleSubmit(HandleAddNewTask)} className="mt-5 flex flex-col gap-3">
                             <input {...register('title')} type="text" placeholder="title of the task..." className="outline-none bg-transparent px-3 py-2 border-white border w-full rounded-md" />
 
-                            <input {...register('points', { valueAsNumber: true })} type="number" placeholder="reward point amount..." className="outline-none bg-transparent px-3 py-2 border-white border w-full rounded-md" />
-
                             <input {...register('link')} placeholder="the link where the user should go..." className="outline-none bg-transparent px-3 py-2 border-white border w-full rounded-md" />
 
-                            <input {...register('participateLimit', { valueAsNumber: true })} type="number" placeholder="how much people can paticipate this task..." className="outline-none bg-transparent px-3 py-2 border-white border w-full rounded-md" />
 
                             <label className="form-control outline-none bg-transparent px-3 py-2 border-white border w-full rounded-md">
                                 <select {...register('category')} defaultValue={'Pick one category'} className="bg-transparent outline-none ">
                                     <option value={'Pick one category'} disabled selected>Pick one category</option>
                                     <option>Telegram</option>
+                                    <option>Discord</option>
                                     <option>Twitter</option>
                                     <option>CMC</option>
                                     <option>Youtube</option>
@@ -76,7 +75,7 @@ const TaskManagement = () => {
                         </div>
                 }
 
-                <div onClick={() => setNewTaskModal(true)} className="font-roboto text-xl text-white flex items-center gap-2 cursor-pointer">
+                <div onClick={() => setNewTaskModal(true)} className="font-roboto text-xl w-fit text-white flex items-center gap-2 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                         <path d="M7.05882 0V14.1176M0 7.05882H15" stroke="#999999" strokeWidth="1.76471" />
                     </svg>
